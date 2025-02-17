@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+)
 
 func main() {
-	fmt.Println("hellow")
+	handler := http.HandlerFunc(OGHandler)
+	http.ListenAndServe(":5000", handler)
 }
